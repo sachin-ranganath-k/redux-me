@@ -4,7 +4,10 @@ import {getUserData} from '../action/action'
 const initialState={
     userDataHere:[],   //Initiall no users. So blank array
     newUserDataHere:{
-        category:""
+        namee:"",
+        email:"",
+        contact:"",
+
     }
 };
 
@@ -14,10 +17,11 @@ const reducer=(state=initialState,action)=>{
         case "FETCH_USERS":
             return{
                 ...state,
-                userDataHere:action.payload
+                userDataHere:action.payload,
            }
-           default: return state;
-        }
+       
+        };
+        return state;
         
 }
 
