@@ -25,6 +25,7 @@ const Home=()=>{
         getAllUsers();
     },[])
     return(
+    <div className="container">
       <table border="2">
           <tr>
               <th>Name</th>
@@ -38,6 +39,7 @@ const Home=()=>{
                 }
          
     </table>
+    </div>
 
     );
    
