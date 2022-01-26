@@ -11,6 +11,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import { Link } from 'react-router-dom';
 
 
 function createData(name, calories, fat, carbs, protein) {
@@ -47,6 +48,7 @@ const Home=()=>{
     },[])
     return(
     <div className="container">
+      <Link to="AddUser">Add New</Link>
       <h3 style={{align:"center"}}>Users List</h3>  
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
