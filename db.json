@@ -3,15 +3,8 @@
     {
       "name": "Sachin",
       "email": "sachin@gmail.com",
-      "contact": "8974569877",
-       "id": 1
-    },
-
-    {
-      "name": "Ranganath",
-      "email": "ranganath@gmail.com",
-      "contact": "897899966",
-       "id": 2
+      "contact": "8765445678",
+      "id": 1
     }
   ]
 }

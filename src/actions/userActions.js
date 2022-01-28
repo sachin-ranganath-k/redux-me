@@ -4,3 +4,10 @@ export const setUserData=(payload)=>{
         payload
     };  
 };
+
+export const setInputValue=(name,value)=>{
+    return{
+        type:"INSERT_USERS",
+        payload:{name,value}
+    }
+}
