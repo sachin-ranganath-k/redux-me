@@ -29,20 +29,16 @@ const reducer=(state=initialState,action)=>{
                 },
             };
 
-        // case "SET_INPUT_VALUES":
-        //     const {name,value}=action.payload;
-        //     return{
-        //         ...state,
-        //         newUserDataHere:{
-        //             ...state.newUserDataHere,
-        //             [name]:value,
-        //         },
-        //     }
-        default: 
-        return state;
-        };
-       
-}
+                case "RESET_DATA":
+                   return{
+                    ...state,
+                    newUserDataHere:initialState.newUserDataHere,
+                
+                   
+            };
+            default: return state;
 
-//const store=createStore(reducer);
-export default reducer;
+           
+       }
+    }
+       export default reducer;

@@ -1,16 +1,21 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { setInputValue } from '../actions/userActions';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
+import reducer from '../reducer/reducer';
+import {resetData} from '../actions/userActions'
 
 
 const AddUser = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
+
+ 
+
 
    //Need to give initial values for text fields. Using useState() 
   const [state,setState]=useState({
@@ -19,6 +24,10 @@ const AddUser = () => {
       contact:"",
 
   });
+
+  useEffect(()=>{
+    dispatch(resetData());
+  },[])
 
   const newUserDataHere = useSelector((state) => state.user.newUserDataHere);
 
