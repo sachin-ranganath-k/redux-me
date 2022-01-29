@@ -5,8 +5,8 @@ import { setInputValue } from '../actions/userActions';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
-import reducer from '../reducer/reducer';
 import {resetData} from '../actions/userActions'
+import {Link} from 'react-router-dom'
 
 
 const AddUser = () => {
@@ -104,6 +104,9 @@ const handleFormSubmit=(e)=>{
       <Button variant="contained" 
       onClick={(e)=>handleFormSubmit()}
      >Submit</Button>
+     <br />
+
+     <Link to="/">Home</Link>
     </>
   )
 };
