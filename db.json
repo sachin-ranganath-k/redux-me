@@ -1,111 +1,16 @@
 {
   "users": [
     {
-      "name": "RRR123",
-      "email": "eee123",
-      "contact": "eee123",
-      "id": 9
-    },
-    {
-      "contact": "",
-      "id": 10
-    },
-    {
-      "name": "RRR444",
-      "email": "eee444",
-      "contact": "444444",
-      "id": 11
-    },
-    {
-      "name": "Sachin",
-      "email": "K",
-      "contact": "4747474747",
-      "id": 12
-    },
-    {
-      "name": "RRR",
-      "email": "eee",
-      "contact": "eee",
-      "id": 13
-    },
-    {
-      "name": "RRR",
-      "email": "eee",
-      "contact": "eee",
-      "id": 14
-    },
-    {
-      "name": "RRR",
-      "email": "eee",
-      "contact": "eee",
-      "id": 15
-    },
-    {
-      "name": "RRR",
-      "email": "eee",
-      "contact": "eee",
-      "id": 16
-    },
-    {
-      "name": "RRR",
-      "email": "eee",
-      "contact": "eee",
-      "id": 17
-    },
-    {
-      "name": "RRR",
-      "email": "eee",
-      "contact": "eee",
-      "id": 18
-    },
-    {
-      "name": "RRR",
-      "email": "eee",
-      "contact": "eee",
-      "id": 19
-    },
-    {
-      "name": "RRR",
-      "email": "eee",
-      "contact": "eee",
-      "id": 20
-    },
-    {
-      "name": "RRR",
-      "email": "eee",
-      "contact": "eee",
-      "id": 21
-    },
-    {
-      "name": "RRR",
-      "email": "eee",
-      "contact": "eee",
-      "id": 22
-    },
-    {
-      "name": "u",
-      "email": "u",
-      "contact": "u",
-      "id": 23
-    },
-    {
-      "name": "SS",
-      "email": "FF",
-      "contact": "F",
-      "id": 24
-    },
-    {
-      "name": "TTTTT",
-      "email": "DDDDD",
-      "contact": "",
-      "undefined": "F",
-      "id": 25
-    },
-    {
       "name": "Ranganath",
       "email": "N",
       "contact": "K",
       "id": 26
+    },
+    {
+      "name": "R",
+      "email": "N",
+      "contact": "Kulkarni",
+      "id": 27
     }
   ]
 }

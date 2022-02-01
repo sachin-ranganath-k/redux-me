@@ -46,6 +46,16 @@ const Home=()=>{
         });
     }
 
+    const deleteUser = (id) => {
+      axios.delete(`http://localhost:3001/users/${id}`)
+        .then((res) => {
+          getAllUsers();
+        })
+        .catch((err) => {
+          console.log("deleted fail");
+        });
+    };
+
  //Runs first once the page renders  
     useEffect(()=>{
         getAllUsers();
@@ -63,7 +73,8 @@ const editUser=(id)=>{
 //JSX Form Elements
     return(
     <div className="container">
-      <Link to="AddUser">Add New</Link>
+      <br /><br />
+    <Button variant="contained" onClick={()=>navigate('/AddUser')}>ADD NEW</Button> 
       <h3 style={{align:"center"}}>Users List</h3>  
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -93,7 +104,7 @@ const editUser=(id)=>{
                     <TableCell align="center">   
                         <Stack spacing={2} direction="row">
                             <Button variant="contained" onClick={(e)=>editUser(userr.id)}>Update</Button>
-                            <Button variant="contained">Delete</Button>
+                            <Button variant="contained" onClick={(e)=>deleteUser(userr.id)} >Delete</Button>
                             {/* <Button variant="outlined">Outlined</Button> */}
                         </Stack>
                     </TableCell>
