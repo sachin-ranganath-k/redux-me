@@ -11,8 +11,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import UpdateUser from './UpdateUser';
 
 function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
@@ -30,7 +30,9 @@ const Home=()=>{
     const allUsers=useSelector((state)=>state.user.userDataHere);
     const dispatch=useDispatch();
 
+    const navigate=useNavigate();
 
+//To get all users
     const getAllUsers=()=>{
         axios.get('http://localhost:3001/users')
         .then((res)=>{
@@ -43,9 +45,22 @@ const Home=()=>{
             dispatch(setUserData(err));
         });
     }
+
+ //Runs first once the page renders  
     useEffect(()=>{
         getAllUsers();
     },[])
+
+//Update call. (Executes once UPDATE button clicked)
+const editUser=(id)=>{
+  // dispatch(setUserData({name: }))
+  
+  navigate(`/UpdateUser/${id}`)
+
+}
+    
+
+//JSX Form Elements
     return(
     <div className="container">
       <Link to="AddUser">Add New</Link>
@@ -77,7 +92,7 @@ const Home=()=>{
                     <TableCell align="center">{userr.contact}</TableCell>
                     <TableCell align="center">   
                         <Stack spacing={2} direction="row">
-                            <Button variant="contained">Update</Button>
+                            <Button variant="contained" onClick={(e)=>editUser(userr.id)}>Update</Button>
                             <Button variant="contained">Delete</Button>
                             {/* <Button variant="outlined">Outlined</Button> */}
                         </Stack>

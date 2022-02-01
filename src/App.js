@@ -3,6 +3,7 @@ import Home from './components/Home';
 import React from 'react';
 import AddUser from './components/AddUser'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import UpdateUser from './components/UpdateUser';
 const LazyHome=React.lazy(()=>import('./components/Home'))
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
            } />
           
            <Route path='/AddUser' element={<AddUser />} />
+           <Route path='/UpdateUser/:userid' element={<UpdateUser />} />
         </Routes>
      </Router> 
       

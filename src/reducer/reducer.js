@@ -29,16 +29,19 @@ const reducer=(state=initialState,action)=>{
                 },
             };
 
-                case "RESET_DATA":
-                   return{
+        case "RESET_DATA":
+            return{
                     ...state,
                     newUserDataHere:initialState.newUserDataHere,
-                
-                   
+            };
+
+
+        case "UPDATE_SET_DETAIL":
+            return{
+                ...state,
+                newUserDataHere:action.payload,
             };
             default: return state;
-
-           
-       }
-    }
+         }
+    };
        export default reducer;

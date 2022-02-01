@@ -18,3 +18,10 @@ export const resetData=(payload)=>{
         payload
     }
 }
+
+export const setDetails=(payload)=>{
+    return{
+        type: "UPDATE_SET_DETAIL",  
+        payload
+    };
+};

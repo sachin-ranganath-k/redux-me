@@ -14,9 +14,6 @@ const AddUser = () => {
 
   const navigate = useNavigate();
 
- 
-
-
    //Need to give initial values for text fields. Using useState() 
   const [state,setState]=useState({
       name:"",
@@ -56,7 +53,18 @@ const handleFormSubmit=(e)=>{
     })
   }
 
-   
+
+//Update Handling
+// const handleUpdate=()=>{
+//   axios.put(`http://localhost:3001/users/${userId}`,newUserDataHere)
+//   .then((res)=>{
+//     navigate("/");
+//   })
+//   .catch((err)=>{
+//     console.log(err);
+//   })
+
+// }
 
 
   return (
@@ -82,6 +90,8 @@ const handleFormSubmit=(e)=>{
         onChange={(e)=>onInputChange(e.target.name,e.target.value)}
       />
     <br /><br />
+    
+
       <TextField
         required
         id="outlined-required"
