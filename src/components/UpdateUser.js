@@ -1,13 +1,12 @@
 import React,{useEffect, useState} from 'react';
+import axios from 'axios';
+import {  useSelector } from 'react-redux';
+
+import {useNavigate, useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { setDetails, setInputValue } from '../actions/userActions';
-import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
-import {useNavigate, useParams} from 'react-router-dom'
-import {resetData} from '../actions/userActions'
-import {Link} from 'react-router-dom'
-import { handleBreakpoints } from '@mui/system';
 
 
 const UpdateUser = () => {   
@@ -15,21 +14,9 @@ const [name, setName ] =  useState('');
 const [email, setEmail ] =  useState('');
 const [contact, setContact ] =  useState('');
 
-  const dispatch = useDispatch();
-
 
   const navigate = useNavigate();
   let {userid}=useParams();  //userid from App.js (Router)
-
-   //Need to give initial values for text fields. Using useState() 
-  // const [state,setState]=useState({
-  //     name:"",
-  //     email:"",
-  //     contact:"",
-
-  // });
-
-
 
   const list = useSelector((state) => state.user.userDataHere);
   
@@ -40,15 +27,8 @@ const [contact, setContact ] =  useState('');
     setContact(userData.contact);
   } , []);
 
-  //console.log('-------' , newUserDataHere);
 
-  //Now destructure the useSelector() values
-  // const {name,email,contact}=newUserDataHere;
-
-
-  //const [error,setError]=useState("");
-  
-  //Now handle the inputs
+  // Handle the inputs
   const onNameChange=(e)=>{
     setName(e.target.value)
   }
@@ -74,8 +54,7 @@ const handleUpdate=()=>{
   console.log(name,email,contact);
 }
 
-
-  return (
+return (
     <>
       <h3>Update User Details</h3>
       <TextField
@@ -88,6 +67,7 @@ const handleUpdate=()=>{
         onChange={onNameChange}
       />
     <br /><br />
+
 <TextField
         required
         id="outlined-required"
@@ -99,8 +79,7 @@ const handleUpdate=()=>{
       />
     <br /><br />
     
-
-      <TextField
+   <TextField
         required
         id="outlined-required"
         label="Required"
@@ -110,14 +89,6 @@ const handleUpdate=()=>{
         onChange={onContactChange}
       />
 
-      {/* <TextField
-          id="outlined-number"
-          label="Number"
-          type="number"
-          InputLabelProps={{
-            shrink: true,
-          }}
-        /> */}
       <br /><br />
       <Button variant="contained" 
       onClick={handleUpdate}
