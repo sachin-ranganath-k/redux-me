@@ -1,7 +1,7 @@
 export const setUserData=(payload)=>{
     return{
         type:"FETCH_USERS",
-        payload
+        payload    //From Home.js to Reducer
     };  
 };
 
@@ -12,7 +12,7 @@ export const setInputValue=(name,value)=>{
     }
 }
 
-export const resetData=(payload)=>{
+export const resetData=(payload)=>{    //
     return{
         type:"RESET_DATA",
         payload
