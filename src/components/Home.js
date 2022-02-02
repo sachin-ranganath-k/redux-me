@@ -12,7 +12,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { Link, useNavigate } from 'react-router-dom';
-import UpdateUser from './UpdateUser';
+
 
 function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
@@ -27,17 +27,19 @@ function createData(name, calories, fat, carbs, protein) {
   ];
 
 const Home=()=>{
-    const allUsers=useSelector((state)=>state.user.userDataHere);
+    const allUsers=useSelector((state)=>state.user.userDataHere);  //Selects all data stored in store.
+//allUsers returns array. Will display data using map()
+
     const dispatch=useDispatch();
 
     const navigate=useNavigate();
 
 //To get all users
-    const getAllUsers=()=>{
+    const getAllUsers=()=>{                   //To display all users
         axios.get('http://localhost:3001/users')
         .then((res)=>{
             
-            dispatch(setUserData(res.data));
+            dispatch(setUserData(res.data));  //FETCH_USERS in reducer
             console.log(res.data)
             
         })
@@ -58,10 +60,11 @@ const Home=()=>{
 
  //Runs first once the page renders  
     useEffect(()=>{
-        getAllUsers();
+        getAllUsers();    
     },[])
 
 //Update call. (Executes once UPDATE button clicked)
+
 const editUser=(id)=>{
   // dispatch(setUserData({name: }))
   
@@ -73,7 +76,9 @@ const editUser=(id)=>{
 //JSX Form Elements
     return(
     <div className="container">
+    
       <br /><br />
+
     <Button variant="contained" onClick={()=>navigate('/AddUser')}>ADD NEW</Button> 
       <h3 style={{align:"center"}}>Users List</h3>  
     <TableContainer component={Paper}>
@@ -114,6 +119,7 @@ const editUser=(id)=>{
         </TableBody>
       </Table>
     </TableContainer>
+
     </div>
 
     );

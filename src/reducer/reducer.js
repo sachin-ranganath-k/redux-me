@@ -1,8 +1,6 @@
-import { createStore } from 'redux';
-
 const initialState={
-    userDataHere:[],   //Initiall no users. So blank array
-    newUserDataHere:{
+    userDataHere:[],   //Initially no users. So blank array
+    newUserDataHere:{  
         name:"",
         email:"",
         contact:"",
@@ -14,8 +12,9 @@ const reducer=(state=initialState,action)=>{
     switch(action.type){
         case "FETCH_USERS":
             return{
-                ...state,
-                userDataHere:action.payload,
+                ...state,                       // Takes previous state
+                userDataHere:action.payload,     /*Initially blank array. Now filled with user details
+                                                 payload from Home.js */
             }
       
 
@@ -32,7 +31,7 @@ const reducer=(state=initialState,action)=>{
         case "RESET_DATA":
             return{
                     ...state,
-                    newUserDataHere:initialState.newUserDataHere,
+                    newUserDataHere:initialState.newUserDataHere, //newUserDataHere is blank. So resets the previous data
             };
 
 

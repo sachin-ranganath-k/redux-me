@@ -23,7 +23,7 @@ const AddUser = () => {
   });
 
   useEffect(()=>{
-    dispatch(resetData());
+    dispatch(resetData());   //RESET_DATA in reducer, Clears previous data in textbox 
   },[])
 
   const newUserDataHere = useSelector((state) => state.user.newUserDataHere);
