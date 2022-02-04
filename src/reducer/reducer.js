@@ -3,7 +3,8 @@ const initialState={
     newUserDataHere:{  
         name:"",
         email:"",
-        contact:"",
+        regno:"",
+        gender:""
     }
 };
 

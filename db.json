@@ -1,28 +1,18 @@
 {
   "users": [
     {
-      "name": "Sachin",
-      "email": "K",
-      "contact": "2GI13CS993",
+      "name": "Mahadev",
+      "email": "m@gmail.com",
+      "regno": "2GI13IS145",
+      "gender": "M",
+      "id": 1
+    },
+    {
+      "name": "Pinky",
+      "email": "pinky@gmail.com",
+      "regno": "2GI13ME145",
+      "gender": "F",
       "id": 2
-    },
-    {
-      "name": "Ranganath",
-      "email": "Kulkarni",
-      "contact": "2GI13EC345",
-      "id": 3
-    },
-    {
-      "name": "DDDD",
-      "email": "EEEE",
-      "contact": "2GI13CS993",
-      "id": 4
-    },
-    {
-      "name": "Kulkarni",
-      "email": "S",
-      "contact": "2GI13EE445",
-      "id": 5
     }
   ]
 }
