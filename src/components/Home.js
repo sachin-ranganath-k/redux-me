@@ -12,6 +12,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { Link, useNavigate } from 'react-router-dom';
+import {USER_ID} from '../constants/constants'
 
 
 function createData(name, calories, fat, carbs, protein) {
@@ -30,6 +31,8 @@ const Home=()=>{
     const allUsers=useSelector((state)=>state.user.userDataHere);  //Selects all data stored in store.
 //allUsers returns array. Will display data using map()
 
+
+
     const dispatch=useDispatch();
 
     const navigate=useNavigate();
@@ -40,7 +43,7 @@ const Home=()=>{
         .then((res)=>{
             
             dispatch(setUserData(res.data));  //FETCH_USERS in reducer
-            console.log(res.data)
+           // console.log(res.data)
             
         })
         .catch((err)=>{
@@ -88,7 +91,8 @@ const editUser=(id)=>{
             <TableCell align="center">ID</TableCell>
             <TableCell align="center">Name</TableCell>
             <TableCell align="center">Email</TableCell>
-            <TableCell align="center">Contact</TableCell>
+            <TableCell align="center">Reg No.</TableCell>
+            <TableCell align="center">Department</TableCell>
             <TableCell>Action</TableCell>
             {/* <TableCell align="right">Protein&nbsp;(g)</TableCell> */}
           </TableRow>
@@ -102,10 +106,11 @@ const editUser=(id)=>{
                     {/* <TableCell component="th" scope="row">
                         {userr.id}
                     </TableCell>  */}
-                        <TableCell align="center">{userr.id}</TableCell> 
-                    <TableCell align="center">{userr.name}</TableCell>
+                        <TableCell align="center">{USER_ID+"-"+userr.id}</TableCell> 
+                    <TableCell align="center">{userr.name.toUpperCase()}</TableCell>
                     <TableCell align="center">{userr.email}</TableCell>
                     <TableCell align="center">{userr.contact}</TableCell>
+                    <TableCell align="center">{userr.contact.substring(5,7)}</TableCell>
                     <TableCell align="center">   
                         <Stack spacing={2} direction="row">
                             <Button variant="contained" onClick={(e)=>editUser(userr.id)}>Update</Button>
