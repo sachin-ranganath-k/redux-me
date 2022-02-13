@@ -25,3 +25,11 @@ export const setDetails=(payload)=>{
         payload
     };
 };
+
+export const getCities=(payload)=>{
+    return{
+        type:"GET_CITIES",
+        payload,
+    }
+};
+

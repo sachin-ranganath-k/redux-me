@@ -34,6 +34,8 @@ const Home=()=>{
     const allUsers=useSelector((state)=>state.user.userDataHere);  //Selects all data stored in store.
 //allUsers returns array. Will display data using map()
 
+
+
  const dispatch=useDispatch();
 
     const navigate=useNavigate();
@@ -68,7 +70,6 @@ const Home=()=>{
     },[])
 
 //Update call. (Executes once UPDATE button clicked)
-
 const editUser=(id)=>{
   // dispatch(setUserData({name: }))
   
@@ -85,7 +86,7 @@ const editUser=(id)=>{
       <br /><br />
 
     {/* <Button variant="contained" onClick={()=>navigate('/AddUser')}>ADD NEW</Button>  */}
-      <h3 style={{align:"center"}}>Users List</h3>  
+      <h3 style={{align:"center"}}>Students List</h3>  
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>

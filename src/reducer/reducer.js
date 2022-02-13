@@ -4,7 +4,13 @@ const initialState={
         name:"",
         email:"",
         regno:"",
-        gender:""
+        gender:"",
+        city:""
+    },
+    cities:[],
+    newCities:{
+        id:"",
+        cityName:""
     }
 };
 
@@ -41,7 +47,18 @@ const reducer=(state=initialState,action)=>{
                 ...state,
                 newUserDataHere:action.payload,
             };
-            default: return state;
+
+
+            case "GET_CITIES":
+                return{
+                    ...state,
+                    cities:action.payload
+                };
+
+
+                default: return state;
+             }
+           
          }
-    };
+
        export default reducer;

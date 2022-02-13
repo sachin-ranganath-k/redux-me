@@ -30,6 +30,11 @@ const AddUser = () => {
   },[])
 
   const newUserDataHere = useSelector((state) => state.user.newUserDataHere);
+  console.log(newUserDataHere);
+
+  
+const allCities=useSelector((state)=>state.cities.newCities);
+console.log("Cities:----",allCities);
 
   //Now destructure the reducer values
   const {name,email,regno,gender,city}=newUserDataHere;
@@ -43,7 +48,7 @@ const AddUser = () => {
 
   //Dropdown Handling
   const onDropdownChange=(name,value)=>{
-      dispatch(getCities(name,value))
+      loadCities();
   }
 
 //Now define form submit
@@ -62,10 +67,11 @@ const handleFormSubmit=(e)=>{
   }
 
 
-  const loadCities=()=>{
+  const loadCities=(name,value)=>{
     axios.get('http://localhost:3002/cities')
     .then((res)=>{
-     setCities(res.data);
+     dispatch(getCities(name,value))
+     console.log(res)
  })
     .catch((err)=>{
       console.log("Error:", err)
@@ -145,15 +151,26 @@ const handleFormSubmit=(e)=>{
     <br />
 
 
-   <select name="city"  onChange={(e)=>onInputChange(e.target.name,e.target.value)}>
-     <option value="">Select</option>
-     {
-      cities.map((c)=>(
-        <option value={c.id}>{c.name}</option>
-      ))
-
-     }
-   </select>
+    <Box sx={{ minWidth: 120 }}>
+      <FormControl sx={{minWidth:220}}>
+        <InputLabel id="demo-simple-select-label">City</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={cities}          
+          label="City"
+          onChange={(e)=>onDropdownChange(e.target.name,e.target.value)}
+        >
+          {/* <MenuItem value="">Select City</MenuItem> */}
+      {
+        cities.map((city)=>(
+          <MenuItem value={city.id}>{city.name}</MenuItem>
+        )
+      )
+      }
+       </Select>
+      </FormControl>
+    </Box>
 
         <br />
     <Button variant="contained" 

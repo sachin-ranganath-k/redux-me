@@ -1,0 +1,14 @@
+{
+  "cities":[
+    {
+        "id":"1",
+        "name": "Karnataka"
+    },
+
+    {
+       "id":"2",
+        "name": "Kerala"
+      }
+
+  ]
+}

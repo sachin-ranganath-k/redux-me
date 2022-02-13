@@ -12,11 +12,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
-import { red } from '@mui/material/colors';
 
 
-const pages = ['Add New'];
-const settings = ['Add New'];
+const pages = ['Home','Add New'];
+const settings = ['Home','Add New'];
 
 const Navbar = () => {
 
@@ -82,6 +81,10 @@ const Navbar = () => {
           >
             {pages.map((page) => (
               <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">
+                    <Link to="/">{page}</Link>
+                </Typography>
+
                 <Typography textAlign="center">
                     <Link to="./AddUser">{page}</Link>
                 </Typography>
