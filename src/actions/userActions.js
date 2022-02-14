@@ -29,7 +29,7 @@ export const setDetails=(payload)=>{
 export const getCities=(payload)=>{
     return{
         type:"GET_CITIES",
-        payload,
+        payload
     }
 };
 

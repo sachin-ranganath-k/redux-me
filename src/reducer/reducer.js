@@ -7,11 +7,7 @@ const initialState={
         gender:"",
         city:""
     },
-    cities:[],
-    newCities:{
-        id:"",
-        cityName:""
-    }
+    cities:[]
 };
 
 const reducer=(state=initialState,action)=>{

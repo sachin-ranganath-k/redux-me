@@ -13,6 +13,14 @@
       "regno": "2GI13ME145",
       "gender": "F",
       "id": 2
+    },
+    {
+      "name": "Sachin",
+      "email": "sachinandroid",
+      "regno": "8987888888",
+      "gender": "M",
+      "city": "1",
+      "id": 3
     }
   ]
 }

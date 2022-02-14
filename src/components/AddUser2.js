@@ -21,7 +21,7 @@ const AddUser = () => {
   const navigate = useNavigate();
 
   // Need to give initial values for States(Raajyagalu) Dropdown. Using useState() 
-  const [cities,setCities]=useState([]);
+  //const [cities,setCities]=useState([]);
 
 
   useEffect(()=>{
@@ -30,11 +30,11 @@ const AddUser = () => {
   },[])
 
   const newUserDataHere = useSelector((state) => state.user.newUserDataHere);
-  console.log(newUserDataHere);
+ // console.log(newUserDataHere);
 
   
-const allCities=useSelector((state)=>state.cities.newCities);
-console.log("Cities:----",allCities);
+const {cities}=useSelector((state)=>state.user);
+
 
   //Now destructure the reducer values
   const {name,email,regno,gender,city}=newUserDataHere;
@@ -46,10 +46,7 @@ console.log("Cities:----",allCities);
     dispatch(setInputValue(name,value));
   }
 
-  //Dropdown Handling
-  const onDropdownChange=(name,value)=>{
-      loadCities();
-  }
+
 
 //Now define form submit
 const handleFormSubmit=(e)=>{
@@ -70,8 +67,8 @@ const handleFormSubmit=(e)=>{
   const loadCities=(name,value)=>{
     axios.get('http://localhost:3002/cities')
     .then((res)=>{
-     dispatch(getCities(name,value))
-     console.log(res)
+     dispatch(getCities(res.data))
+     //console.log(res)
  })
     .catch((err)=>{
       console.log("Error:", err)
@@ -97,7 +94,7 @@ const handleFormSubmit=(e)=>{
     <>
   <Navbar />
       <h3>Add New User</h3>
-      
+  {/* Name and value of each field should be same as used in reducer (useSelector destructuring)     */}
       <TextField
         required
         id="outlined-required"
@@ -157,9 +154,10 @@ const handleFormSubmit=(e)=>{
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={cities}          
+          value={city}
+          name="city"        
           label="City"
-          onChange={(e)=>onDropdownChange(e.target.name,e.target.value)}
+          onChange={(e)=>onInputChange(e.target.name,e.target.value)}
         >
           {/* <MenuItem value="">Select City</MenuItem> */}
       {
