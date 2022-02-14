@@ -14,15 +14,12 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Navbar from '../Navbar/Navbar';
 import { GENDER_FEMALE, GENDER_MALE } from '../constants/constants';
-
+import Grid from '@mui/material/Grid';
+import { Container } from '@mui/material';
 
 const AddUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  // Need to give initial values for States(Raajyagalu) Dropdown. Using useState() 
-  //const [cities,setCities]=useState([]);
-
 
   useEffect(()=>{
     dispatch(resetData());   //RESET_DATA in reducer, Clears previous data in textbox 
@@ -30,18 +27,15 @@ const AddUser = () => {
   },[])
 
   const newUserDataHere = useSelector((state) => state.user.newUserDataHere);
- // console.log(newUserDataHere);
-
   
+//Take cities values from Reducer
 const {cities}=useSelector((state)=>state.user);
 
 
-  //Now destructure the reducer values
-  const {name,email,regno,gender,city}=newUserDataHere;
-
-  //const [error,setError]=useState("");
+  //Now destructure the reducer values. Names can be anything
+  const {namee,email,regno,gender,city}=newUserDataHere;
   
-  //Now handle the inputs
+  //Now handle all the inputs
   const onInputChange=(name,value)=>{
     dispatch(setInputValue(name,value));
   }
@@ -49,11 +43,7 @@ const {cities}=useSelector((state)=>state.user);
 
 
 //Now define form submit
-const handleFormSubmit=(e)=>{
-    // e.preventDefault();
-    // if(!name || !email || !contact){
-    //   setError("Please enter all the details");
-    // 
+const handleFormSubmit=(e)=>{ 
     axios.post('http://localhost:3001/users', newUserDataHere)
     .then((res)=>{
       console.log(res.data)
@@ -64,11 +54,11 @@ const handleFormSubmit=(e)=>{
   }
 
 
+  //Loads the cities from API
   const loadCities=(name,value)=>{
     axios.get('http://localhost:3002/cities')
     .then((res)=>{
      dispatch(getCities(res.data))
-     //console.log(res)
  })
     .catch((err)=>{
       console.log("Error:", err)
@@ -77,34 +67,27 @@ const handleFormSubmit=(e)=>{
   }
 
 
-//Update Handling
-// const handleUpdate=()=>{
-//   axios.put(`http://localhost:3001/users/${userId}`,newUserDataHere)
-//   .then((res)=>{
-//     navigate("/");
-//   })
-//   .catch((err)=>{
-//     console.log(err);
-//   })
-
-// }
-
-
   return (
     <>
   <Navbar />
       <h3>Add New User</h3>
-  {/* Name and value of each field should be same as used in reducer (useSelector destructuring)     */}
+  {/* Name and value of each field should be same as used in useSelector destructuring*/}
+<Container maxWidth="lg">
+  <Grid container spacing={4}>
+    <Grid item xs={6}>
       <TextField
         required
         id="outlined-required"
         label="Enter Name"
         placeholder="Required"
         name="name"
-        value={name}
+        size="100"
+        value={namee}
+        fullWidth
         onChange={(e)=>onInputChange(e.target.name,e.target.value)}
       />
-    <br /><br />
+    </Grid>
+    <Grid item xs={6}>
 <TextField
         required
         id="outlined-required"
@@ -113,10 +96,10 @@ const handleFormSubmit=(e)=>{
         name="email"
         value={email}
         onChange={(e)=>onInputChange(e.target.name,e.target.value)}
+        fullWidth
       />
-    <br /><br />
-    
-
+  </Grid>
+  <Grid item xs={6}>
       <TextField
         required
         id="outlined-required"
@@ -124,11 +107,12 @@ const handleFormSubmit=(e)=>{
         placeholder="Required"
         name="regno"
         value={regno}
+        fullWidth
         onChange={(e)=>onInputChange(e.target.name,e.target.value)}
       />
-
+</Grid>
       <br /><br />
-    
+  <Grid item xs={6}>   
      <Box sx={{ minWidth: 120 }}>
       <FormControl sx={{minWidth:220}}>
         <InputLabel id="demo-simple-select-label">Gender</InputLabel>
@@ -139,15 +123,16 @@ const handleFormSubmit=(e)=>{
           value={gender}          
           label="Gender"
           onChange={(e)=>onInputChange(e.target.name,e.target.value)}
+          style={{width:560}}
         >
           <MenuItem value="M">{GENDER_MALE}</MenuItem>
           <MenuItem value="F">{GENDER_FEMALE}</MenuItem>
         </Select>
       </FormControl>
     </Box>
-    <br />
+  </Grid>
 
-
+  <Grid item xs={6}>
     <Box sx={{ minWidth: 120 }}>
       <FormControl sx={{minWidth:220}}>
         <InputLabel id="demo-simple-select-label">City</InputLabel>
@@ -157,9 +142,11 @@ const handleFormSubmit=(e)=>{
           value={city}
           name="city"        
           label="City"
+          fullWidth
           onChange={(e)=>onInputChange(e.target.name,e.target.value)}
+          style={{width:560}}
         >
-          {/* <MenuItem value="">Select City</MenuItem> */}
+           <MenuItem value="">Select City</MenuItem>
       {
         cities.map((city)=>(
           <MenuItem value={city.id}>{city.name}</MenuItem>
@@ -169,7 +156,9 @@ const handleFormSubmit=(e)=>{
        </Select>
       </FormControl>
     </Box>
-
+  </Grid>
+</Grid>
+</Container>
         <br />
     <Button variant="contained" 
       onClick={(e)=>handleFormSubmit()}
@@ -178,6 +167,7 @@ const handleFormSubmit=(e)=>{
 
      <Link to="/">Home</Link>
     </>
+
   )
 };
 

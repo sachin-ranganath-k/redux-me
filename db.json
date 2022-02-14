@@ -1,26 +1,9 @@
 {
-  "users": [
+  "users": [],
+  "admin": [
     {
-      "name": "Mahadev",
-      "email": "m@gmail.com",
-      "regno": "2GI13IS145",
-      "gender": "M",
-      "id": 1
-    },
-    {
-      "name": "Pinky",
-      "email": "pinky@gmail.com",
-      "regno": "2GI13ME145",
-      "gender": "F",
-      "id": 2
-    },
-    {
-      "name": "Sachin",
-      "email": "sachinandroid",
-      "regno": "8987888888",
-      "gender": "M",
-      "city": "1",
-      "id": 3
+      "adminEmail": "sachin@gmail.com",
+      "adminPassword": 12345
     }
   ]
 }

@@ -14,7 +14,7 @@ function App() {
     <div className="App">
      <Router>
        <Routes>
-           <Route path='/' 
+           <Route exact path='/' 
            element={
               <React.Suspense fallback={<Loader />}>
                  <LazyHome />

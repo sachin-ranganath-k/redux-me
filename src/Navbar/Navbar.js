@@ -82,11 +82,11 @@ const Navbar = () => {
             {pages.map((page) => (
               <MenuItem key={page} onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">
-                    <Link to="/">{page}</Link>
+                    <Link to="/">{page[0]}</Link>
                 </Typography>
 
                 <Typography textAlign="center">
-                    <Link to="./AddUser">{page}</Link>
+                    <Link to="./AddUser">{page[1]}</Link>
                 </Typography>
               </MenuItem>
             ))}

@@ -4,8 +4,8 @@ const initialState={
         name:"",
         email:"",
         regno:"",
-        gender:"",
-        city:""
+       city:"",
+       gender:"",
     },
     cities:[]
 };
