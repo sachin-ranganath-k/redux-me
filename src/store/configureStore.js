@@ -8,7 +8,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const configureStore = () =>
   createStore(
     combineReducers({
-      user: reducer,
+      userss: reducer,  //The userss has been passed to useSelector()
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

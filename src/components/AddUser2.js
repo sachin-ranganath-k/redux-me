@@ -17,19 +17,20 @@ import { GENDER_FEMALE, GENDER_MALE } from '../constants/constants';
 import Grid from '@mui/material/Grid';
 import { Container } from '@mui/material';
 
-const AddUser = () => {
+const AddUser = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(()=>{
     dispatch(resetData());   //RESET_DATA in reducer, Clears previous data in textbox 
     loadCities();
+   
   },[])
 
-  const newUserDataHere = useSelector((state) => state.user.newUserDataHere);
+  const newUserDataHere = useSelector((state) => state.userss.newUserDataHere);
   
 //Take cities values from Reducer
-const {cities}=useSelector((state)=>state.user);
+const {cities}=useSelector((state)=>state.userss);
 
 
   //Now destructure the reducer values. Names can be anything
@@ -70,7 +71,7 @@ const handleFormSubmit=(e)=>{
   return (
     <>
   <Navbar />
-      <h3>Add New User</h3>
+      <h3>Add New User {props.data}</h3>
   {/* Name and value of each field should be same as used in useSelector destructuring*/}
 <Container maxWidth="lg">
   <Grid container spacing={4}>

@@ -12,14 +12,15 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { useNavigate } from "react-router-dom";
-import { 
-  NO_DATA_FOUND, 
+import {
+  NO_DATA_FOUND,
   USER_ID,
   GENDER_MALE,
   GENDER_FEMALE,
-  STUDENT_DETAILS 
+  STUDENT_DETAILS,
 } from "../constants/constants";
 import Navbar from "../Navbar/Navbar";
+import Loader from "./loader/Loader";
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -33,26 +34,29 @@ const allUsers = [
   createData("Gingerbread", 356, 16.0, 49, 3.9),
 ];
 
-const Home = () => {
+const Home = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   let slNo = 1;
-  const allUsers = useSelector((state) => state.user.userDataHere); //Selects all data stored in store.
-  //allUsers returns array. Will display data using map()
-
+  const allUsers = useSelector((state) => state.userss.userDataHere);
+  //Selects all data stored in store.allUsers returns array. We Will display data using map()
+  //userss is key for reducer in combineReducers
 
   //To get all users
   const getAllUsers = () => {
     //To display all users
+    setLoading(true);
     axios
       .get("http://localhost:3001/users")
       .then((res) => {
         dispatch(setUserData(res.data)); //FETCH_USERS in reducer
-        // console.log(res.data)
+        setLoading(false);
       })
       .catch((err) => {
         dispatch(setUserData(err));
+        setLoading(false);
       });
   };
 
@@ -86,8 +90,8 @@ const Home = () => {
       <br />
       <br />
 
-   
       <h3 style={{ align: "center" }}>{STUDENT_DETAILS}</h3>
+      
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -103,42 +107,49 @@ const Home = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-          {Object.keys(allUsers).length==0 ? <h2>{NO_DATA_FOUND}</h2> : 
-            allUsers.map((userr) => (
-              <TableRow
-                key={userr.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell align="center">{slNo++}</TableCell>
-                <TableCell align="center">{USER_ID + "-" + userr.id}</TableCell>
-                <TableCell align="center">{userr.regno}</TableCell>
-                <TableCell align="center">{userr.name.toUpperCase()}</TableCell>
-                <TableCell align="center">
-                  {userr.gender == "M" ? GENDER_MALE : GENDER_FEMALE}
-                </TableCell>
-                <TableCell align="center">{userr.email}</TableCell>
-                <TableCell align="center">
-                  {userr.regno.substring(5, 7)}
-                </TableCell>
-                <TableCell align="center">
-                  <Stack spacing={2} direction="row">
-                    <Button
-                      variant="contained"
-                      onClick={(e) => editUser(userr.id)}
-                    >
-                      Update
-                    </Button>
-                    <Button
-                      variant="contained"
-                      onClick={(e) => deleteUser(userr.id)}
-                    >
-                      Delete
-                    </Button>
-                  </Stack>
-                </TableCell>
-              </TableRow>
-            ))}
-            
+          {loading ? <Loader /> : <></>}
+            {Object.keys(allUsers).length == 0 ? (
+              <h2>{NO_DATA_FOUND}</h2>
+            ) : (
+              allUsers.map((userr) => (
+                <TableRow
+                  key={userr.id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell align="center">{slNo++}</TableCell>
+                  <TableCell align="center">
+                    {USER_ID + "-" + userr.id}
+                  </TableCell>
+                  <TableCell align="center">{userr.regno}</TableCell>
+                  <TableCell align="center">
+                    {userr.name.toUpperCase()}
+                  </TableCell>
+                  <TableCell align="center">
+                    {userr.gender == "M" ? GENDER_MALE : GENDER_FEMALE}
+                  </TableCell>
+                  <TableCell align="center">{userr.email}</TableCell>
+                  <TableCell align="center">
+                    {userr.regno.substring(5, 7)}
+                  </TableCell>
+                  <TableCell align="center">
+                    <Stack spacing={2} direction="row">
+                      <Button
+                        variant="contained"
+                        onClick={(e) => editUser(userr.id)}
+                      >
+                        Update
+                      </Button>
+                      <Button
+                        variant="contained"
+                        onClick={(e) => deleteUser(userr.id)}
+                      >
+                        Delete
+                      </Button>
+                    </Stack>
+                  </TableCell>
+                </TableRow>
+              ))
+            )}
           </TableBody>
         </Table>
       </TableContainer>

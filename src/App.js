@@ -7,6 +7,9 @@ import UpdateUser from './components/UpdateUser';
 import Loader from './components/loader/Loader';
 import Pagination from './components/Pagination';
 import HomeCard from './components/HomeCard';
+import AddCities from './admin/admin-components/AddCities';
+import AdminLogin from './admin/admin-components/AdminLogin';
+
 const LazyHome=React.lazy(()=>import('./components/Home'))
 
 function App() {
@@ -22,6 +25,8 @@ function App() {
            } />
           
            <Route path='/AddUser' element={<AddUser2 />} />
+           <Route path='/AdminHome' element={<AddCities />} />
+           <Route path='/AdminLogin' element={<AdminLogin />} />
            <Route path='/UpdateUser/:userid' element={<UpdateUser />} />
            <Route path='/Pagination' element={<Pagination />} />
            <Route path='/HomeCard' element={<HomeCard />} />

@@ -1,5 +1,14 @@
 {
-  "users": [],
+  "users": [
+    {
+      "name": "Ranganath",
+      "email": "ranganath@gmail.com",
+      "regno": "2GI13IS416",
+      "city": "1",
+      "gender": "M",
+      "id": 1
+    }
+  ],
   "admin": [
     {
       "adminEmail": "sachin@gmail.com",
