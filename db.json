@@ -1,18 +1,18 @@
 {
   "users": [
     {
-      "name": "Ranganath",
-      "email": "ranganath@gmail.com",
-      "regno": "2GI13IS416",
-      "city": "1",
-      "gender": "M",
-      "id": 1
+      "name": "DDD",
+      "email": "jjj",
+      "regno": "2GI13EC787",
+      "city": 1,
+      "gender": "F",
+      "id": 6
     }
   ],
   "admin": [
     {
       "adminEmail": "sachin@gmail.com",
-      "adminPassword": 12345
+      "adminPassword": "12345"
     }
   ]
 }
