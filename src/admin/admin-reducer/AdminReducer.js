@@ -16,6 +16,12 @@ const cityReducer=(states=initialCityState,action)=>{
                     [name]:value
                 },
             }
+
+            case "RESET_DATA":
+                return{
+                    ...states,
+                    newCitiesHere:initialCityState.newCitiesHere
+                }
            default:  return states;
     }
     

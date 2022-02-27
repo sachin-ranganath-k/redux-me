@@ -34,7 +34,7 @@ const allUsers = [
   createData("Gingerbread", 356, 16.0, 49, 3.9),
 ];
 
-const Home = (props) => {
+const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -98,11 +98,11 @@ const Home = (props) => {
             <TableRow>
               <TableCell align="center">Sl No.</TableCell>
               <TableCell align="center">ID</TableCell>
-              <TableCell align="center">Reg No.</TableCell>
+              <TableCell align="center">PAN</TableCell>
               <TableCell align="center">Name</TableCell>
               <TableCell align="center">Gender</TableCell>
               <TableCell align="center">Email</TableCell>
-              <TableCell align="center">Department</TableCell>
+              <TableCell align="center">Secret Code</TableCell>
               <TableCell>Action</TableCell>
             </TableRow>
           </TableHead>

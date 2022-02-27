@@ -1,5 +1,10 @@
-export const USER_ID="STUD";
+export const USER_ID="ACC";
 export const GENDER_MALE="MALE";
 export const GENDER_FEMALE="FEMALE";
 export const NO_DATA_FOUND="No Data Found"
-export const STUDENT_DETAILS="List of Students"
+export const STUDENT_DETAILS="List of Account Holders"
+export const ACCOUNT_NUMBER="Account Number"
+export const ACCOUNT_HOLDER="Account Holder"
+export const PAN="PAN Number"
+export const GENDER="Gender"
+export const EMAIL="Email"

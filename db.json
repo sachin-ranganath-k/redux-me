@@ -1,12 +1,28 @@
 {
   "users": [
     {
-      "name": "DDD",
-      "email": "jjj",
-      "regno": "2GI13EC787",
+      "name": "Ranganath",
+      "email": "ranganath@gmail.com",
+      "regno": "DLUPK0588M",
+      "city": 1,
+      "gender": "M",
+      "id": 1
+    },
+    {
+      "name": "Sachin",
+      "email": "ranganath@gmail.com",
+      "regno": "FGRRT0888M",
+      "city": 1,
+      "gender": "M",
+      "id": 2
+    },
+    {
+      "name": "Priyanka",
+      "email": "pri@gmail.com",
+      "regno": "GFRTY1488N",
       "city": 1,
       "gender": "F",
-      "id": 6
+      "id": 3
     }
   ],
   "admin": [

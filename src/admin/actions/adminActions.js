@@ -4,3 +4,11 @@ export const setCityValues = (name, value) => {
     payload: { name, value }
   }
 }
+
+export const resetData=(payload)=>{
+  return{
+    type: "RESET_DATA",
+    payload
+
+  }
+}

@@ -3,6 +3,14 @@
     {
       "cityName": "Karnataka",
       "id": 1
+    },
+    {
+      "cityName": "Kerala",
+      "id": 2
+    },
+    {
+      "cityName": "Jammu",
+      "id": 3
     }
   ]
 }

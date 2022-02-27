@@ -100,7 +100,7 @@ const AddUser = (props) => {
             <TextField
               required
               id="outlined-required"
-              label="Enter Contact No."
+              label="Enter PAN No."
               placeholder="Required"
               name="regno"
               value={regno}

@@ -9,6 +9,7 @@ import Pagination from './components/Pagination';
 import HomeCard from './components/HomeCard';
 import AddCities from './admin/admin-components/AddCities';
 import AdminLogin from './admin/admin-components/AdminLogin';
+import  SearchAccountHolder  from './components/SearchAccountHolder';
 
 const LazyHome=React.lazy(()=>import('./components/Home'))
 
@@ -30,6 +31,8 @@ function App() {
            <Route path='/UpdateUser/:userid' element={<UpdateUser />} />
            <Route path='/Pagination' element={<Pagination />} />
            <Route path='/HomeCard' element={<HomeCard />} />
+           <Route path='/SearchAccountHolder' element={<SearchAccountHolder />} />
+
         </Routes>
      </Router> 
       

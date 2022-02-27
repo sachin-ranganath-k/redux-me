@@ -8,6 +8,7 @@ const initialState={
        gender:"",
     },
     cities:[]
+
 };
 
 const reducer=(state=initialState,action)=>{
@@ -20,7 +21,6 @@ const reducer=(state=initialState,action)=>{
                                                  payload from Home.js */
             }
       
-
         case "INSERT_USERS":
            const {name,value}=action.payload; //Destructure name and value from action.payload
            return{

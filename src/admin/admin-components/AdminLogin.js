@@ -3,12 +3,15 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import AddCities from "./AddCities";
 
 const AdminLogin = () => {
   const [adminEmail, setAdminEmail] = useState("");
   const [adminPassword, setAdminPassword] = useState("");
-  const [resetState, setResetState]=useState("");
+  const [message, setMessage]=useState("");
+
+
   const navigate = useNavigate();
 
   const loginValidation = () => {
@@ -16,7 +19,7 @@ const AdminLogin = () => {
       navigate("/AdminHome");
     }
     else{
-      alert('Invalid');
+      setMessage("Invalid Credentials")
      // return false;
     }
   };
@@ -65,6 +68,7 @@ const AdminLogin = () => {
       </Container>
       <br />
       <Button variant="contained" onClick={loginValidation}>LOGIN</Button>
+      <p>{message}</p>
     </div>
   );
 };

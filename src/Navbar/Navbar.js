@@ -14,8 +14,8 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 
 
-const pages = ['Home','Add New'];
-const settings = ['Home','Add New'];
+const pages = ['Home','Add New', 'Search'];
+const settings = ['Home','Add New', 'Search'];
 
 const Navbar = () => {
 
@@ -47,7 +47,7 @@ const Navbar = () => {
           component="div"
           sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
         >
-        CRUD
+        e-Bank
         </Typography>
 
         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -86,20 +86,17 @@ const Navbar = () => {
                 </Typography>
 
                 <Typography textAlign="center">
-                    <Link to="./AddUser">{page[1]}</Link>
+                    <Link to="/AddUser">{page[1]}</Link>
+                </Typography>
+
+                <Typography textAlign="center">
+                    <Link to="/SearchAccountHolder">{page[2]}</Link>
                 </Typography>
               </MenuItem>
             ))}
           </Menu>
         </Box>
-        <Typography
-          variant="h6"
-          noWrap
-          component="div"
-          sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-        >
-          LOGO
-        </Typography>
+       
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
           {pages.map((page) => (
             <Button
